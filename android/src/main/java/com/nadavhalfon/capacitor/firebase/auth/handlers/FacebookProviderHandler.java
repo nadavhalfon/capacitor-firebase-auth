@@ -1,9 +1,9 @@
-package com.baumblatt.capacitor.firebase.auth.handlers;
+package com.nadavhalfon.capacitor.firebase.auth.handlers;
 
 import android.content.Intent;
 import android.util.Log;
 
-import com.baumblatt.capacitor.firebase.auth.CapacitorFirebaseAuth;
+import com.nadavhalfon.capacitor.firebase.auth.CapacitorFirebaseAuth;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;

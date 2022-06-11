@@ -1,8 +1,8 @@
-package com.baumblatt.capacitor.firebase.auth.handlers;
+package com.nadavhalfon.capacitor.firebase.auth.handlers;
 
 import android.content.Intent;
 
-import com.baumblatt.capacitor.firebase.auth.CapacitorFirebaseAuth;
+import com.nadavhalfon.capacitor.firebase.auth.CapacitorFirebaseAuth;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.PluginCall;
 import com.google.firebase.auth.AuthCredential;

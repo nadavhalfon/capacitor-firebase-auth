@@ -1,12 +1,12 @@
-package com.baumblatt.capacitor.firebase.auth.handlers;
+package com.nadavhalfon.capacitor.firebase.auth.handlers;
 
 import android.content.Intent;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.baumblatt.capacitor.firebase.auth.CapacitorFirebaseAuth;
-import com.baumblatt.capacitor.firebase.auth.R;
+import com.nadavhalfon.capacitor.firebase.auth.CapacitorFirebaseAuth;
+import com.nadavhalfon.capacitor.firebase.auth.R;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.PluginCall;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -25,7 +25,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 import com.auth0.android.jwt.JWT;
 
-import static com.baumblatt.capacitor.firebase.auth.CapacitorFirebaseAuth.CONFIG_KEY_PREFIX;
+import static com.nadavhalfon.capacitor.firebase.auth.CapacitorFirebaseAuth.CONFIG_KEY_PREFIX;
 
 public class GoogleProviderHandler implements ProviderHandler {
     public static final int RC_GOOGLE_SIGN_IN = 9001;

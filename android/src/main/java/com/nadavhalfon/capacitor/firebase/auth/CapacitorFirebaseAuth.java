@@ -1,4 +1,4 @@
-package com.baumblatt.capacitor.firebase.auth;
+package com.nadavhalfon.capacitor.firebase.auth;
 
 import android.content.Intent;
 import android.util.Log;
@@ -6,13 +6,13 @@ import android.util.SparseArray;
 
 import androidx.annotation.NonNull;
 
-import com.baumblatt.capacitor.firebase.auth.R;
-import com.baumblatt.capacitor.firebase.auth.handlers.AppleProviderHandler;
-import com.baumblatt.capacitor.firebase.auth.handlers.FacebookProviderHandler;
-import com.baumblatt.capacitor.firebase.auth.handlers.GoogleProviderHandler;
-import com.baumblatt.capacitor.firebase.auth.handlers.PhoneProviderHandler;
-import com.baumblatt.capacitor.firebase.auth.handlers.ProviderHandler;
-import com.baumblatt.capacitor.firebase.auth.handlers.TwitterProviderHandler;
+import com.nadavhalfon.capacitor.firebase.auth.R;
+import com.nadavhalfon.capacitor.firebase.auth.handlers.AppleProviderHandler;
+import com.nadavhalfon.capacitor.firebase.auth.handlers.FacebookProviderHandler;
+import com.nadavhalfon.capacitor.firebase.auth.handlers.GoogleProviderHandler;
+import com.nadavhalfon.capacitor.firebase.auth.handlers.PhoneProviderHandler;
+import com.nadavhalfon.capacitor.firebase.auth.handlers.ProviderHandler;
+import com.nadavhalfon.capacitor.firebase.auth.handlers.TwitterProviderHandler;
 import com.getcapacitor.CapConfig;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.NativePlugin;

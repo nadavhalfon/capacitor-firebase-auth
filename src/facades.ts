@@ -1,4 +1,4 @@
-import 'firebase/auth';
+import 'firebase/compat/auth';
 import {registerPlugin} from '@capacitor/core';
 
 import firebase from 'firebase/compat/app';

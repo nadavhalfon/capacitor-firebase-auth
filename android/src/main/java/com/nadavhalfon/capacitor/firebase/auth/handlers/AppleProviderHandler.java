@@ -1,11 +1,11 @@
-package com.baumblatt.capacitor.firebase.auth.handlers;
+package com.nadavhalfon.capacitor.firebase.auth.handlers;
 
 import android.content.Intent;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.baumblatt.capacitor.firebase.auth.CapacitorFirebaseAuth;
+import com.nadavhalfon.capacitor.firebase.auth.CapacitorFirebaseAuth;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.PluginCall;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -19,9 +19,9 @@ import com.google.firebase.auth.OAuthProvider;
 
 import java.lang.reflect.Method;
 
-public class TwitterProviderHandler implements ProviderHandler, OnSuccessListener<AuthResult>, OnFailureListener {
-    private static final String TWITTER_TAG = "TwitterProviderHandler";
-    public static final int RC_TWITTER_SIGN_IN = 9001;
+public class AppleProviderHandler implements ProviderHandler, OnSuccessListener<AuthResult>, OnFailureListener {
+    private static final String APPLE_TAG = "AppleProviderHandler";
+    public static final int RC_APPLE_SIGN_IN = 8001;
 
     private CapacitorFirebaseAuth plugin;
     private FirebaseAuth firebaseAuth;
@@ -33,14 +33,14 @@ public class TwitterProviderHandler implements ProviderHandler, OnSuccessListene
 
         String languageCode = this.plugin.getConfig().getString(CapacitorFirebaseAuth.CONFIG_KEY_PREFIX +"languageCode", "en");
 
-        this.provider = OAuthProvider.newBuilder("twitter.com");
+        this.provider = OAuthProvider.newBuilder("apple.com");
         this.provider.addCustomParameter("lang", languageCode);
         this.firebaseAuth = FirebaseAuth.getInstance();
     }
 
     @Override
     public void signIn(PluginCall call) {
-        Log.d(TWITTER_TAG, "Twitter SignIn starts..");
+        Log.d(APPLE_TAG, "Apple SignIn starts..");
         Task<AuthResult> pendingResultTask = firebaseAuth.getPendingAuthResult();
 
         if (pendingResultTask != null) {
@@ -60,39 +60,41 @@ public class TwitterProviderHandler implements ProviderHandler, OnSuccessListene
 
     @Override
     public void onFailure(@NonNull Exception exception) {
-        Log.w(TWITTER_TAG, "twitterLogin:failure", exception);
-        plugin.handleFailure("Twitter Sign In failure.", exception);
+        Log.w(APPLE_TAG, "appleLogin:failure", exception);
+        plugin.handleFailure("Apple Sign In failure.", exception);
     }
 
     @Override
     public void signOut() {
         // there is nothing to do here
-        Log.d(TWITTER_TAG, "TwitterProviderHandler.signOut called.");
+        Log.d(APPLE_TAG, "AppleProviderHandler.signOut called.");
     }
 
     @Override
     public int getRequestCode() {
         // there is nothing to do here
-        Log.d(TWITTER_TAG, "TwitterProviderHandler.getRequestCode called.");
-        return RC_TWITTER_SIGN_IN;
+        Log.d(APPLE_TAG, "AppleProviderHandler.getRequestCode called.");
+        return RC_APPLE_SIGN_IN;
     }
 
     @Override
     public void handleOnActivityResult(int requestCode, int resultCode, Intent data) {
         // there is nothing to do here
-        Log.d(TWITTER_TAG, "handleOnActivityResult.signOut called.");
+        Log.d(APPLE_TAG, "AppleProviderHandler.signOut called.");
     }
 
     @Override
     public boolean isAuthenticated() {
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        return user != null &&  "twitter.com".equals(user.getProviderId());
+        return user != null &&  "apple.com".equals(user.getProviderId());
     }
 
     @Override
     public void fillResult(AuthCredential credential, JSObject jsResult) {
         if (credential != null) {
-            jsResult.put("idToken", this.getCredentialParts(credential, "getAccessToken"));
+            jsResult.put("accessToken", this.getCredentialParts(credential, "getAccessToken"));
+            jsResult.put("idToken", this.getCredentialParts(credential, "getIdToken"));
+            jsResult.put("rawNonce", this.getCredentialParts(credential, "getRawNonce"));
             jsResult.put("secret", this.getCredentialParts(credential, "getSecret"));
         }
     }
@@ -102,8 +104,9 @@ public class TwitterProviderHandler implements ProviderHandler, OnSuccessListene
             Method method = credential.getClass().getMethod(methodName);
             return (String) method.invoke(credential);
         } catch (Exception e) {
-            Log.d(TWITTER_TAG, String.format("Fail to get %s from credentials.", methodName));
+            Log.d(APPLE_TAG, String.format("Fail to get %s from credentials.", methodName));
             return "";
         }
     }
+
 }
