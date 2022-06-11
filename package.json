@@ -1,6 +1,6 @@
 {
-	"name": "capacitor-firebase-auth",
-	"version": "3.0.0",
+	"name": "@nadavhalfon/capacitor-firebase-auth",
+	"version": "1.0.0",
 	"description": "Capacitor plugin for Firebase Authentication",
 	"main": "dist/esm/index.js",
 	"types": "dist/esm/index.d.ts",
@@ -11,7 +11,7 @@
 		"watch": "tsc --watch",
 		"prepublishOnly": "npm run build"
 	},
-	"author": "Bernardo Baumblatt",
+	"author": "Nadav Halfon",
 	"license": "MIT",
 	"dependencies": {
 		"@capacitor/core": "next"
@@ -23,7 +23,7 @@
 		"typescript": "^3.9.5 || ^4.0.0"
 	},
 	"peerDependencies": {
-		"firebase": "^8.3.0",
+		"firebase": "^9.8.3",
 		"rxjs": "~6.6.6"
 	},
 	"files": [
@@ -31,7 +31,7 @@
 		"dist/",
 		"ios/",
 		"android/",
-		"CapacitorFirebaseAuth.podspec"
+		"NadavhalfonCapacitorFirebaseAuth.podspec"
 	],
 	"keywords": [
 		"capacitor",
@@ -48,9 +48,9 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/baumblatt/capacitor-firebase-auth.git"
+		"url": "https://github.com/nadavhalfon/capacitor-firebase-auth.git"
 	},
 	"bugs": {
-		"url": "https://github.com/baumblatt/capacitor-firebase-auth.git/issues"
+		"url": "https://github.com/nadavhalfon/capacitor-firebase-auth.git/issues"
 	}
 }

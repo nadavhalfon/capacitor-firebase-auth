@@ -1,7 +1,7 @@
 import 'firebase/auth';
 import {registerPlugin} from '@capacitor/core';
 
-import firebase from 'firebase/app';
+import firebase from 'firebase/compat/app';
 import { Observable, throwError } from 'rxjs';
 
 import {

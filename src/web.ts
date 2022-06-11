@@ -1,6 +1,6 @@
 import 'firebase/auth';
 
-import firebase from 'firebase/app';
+import firebase from 'firebase/compat/app';
 
 import { WebPlugin } from '@capacitor/core';
 
@@ -22,7 +22,7 @@ export class CapacitorFirebaseAuthWeb extends WebPlugin implements CapacitorFire
       const facebookProvider = new firebase.auth.FacebookAuthProvider().providerId;
       const twitterProvider = new firebase.auth.TwitterAuthProvider().providerId;
       const phoneProvider = new firebase.auth.PhoneAuthProvider().providerId;
-      
+
       switch (options.providerId) {
           case appleProvider:
               return appleSignInWeb(options) as any;
